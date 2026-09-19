@@ -1,0 +1,30 @@
+{
+  "descricao": "Corpus agrícola do Desafio Lab AgroSearch — 5 manuais técnicos sobre agricultura sustentável, controle de pragas e irrigação (hardcode obrigatório do enunciado).",
+  "documentos": [
+    {
+      "id": "Doc 1",
+      "titulo": "Manejo de Irrigação da Soja",
+      "texto": "A soja requer irrigação constante durante o período de floração para garantir a produtividade."
+    },
+    {
+      "id": "Doc 2",
+      "titulo": "Controle Biológico de Pragas",
+      "texto": "O controle biológico de lagartas na soja pode ser feito com a vespa Trichogramma."
+    },
+    {
+      "id": "Doc 3",
+      "titulo": "Adubação Verde e Nitrogênio",
+      "texto": "A adubação verde com leguminosas melhora o nitrogênio no solo para o milho."
+    },
+    {
+      "id": "Doc 4",
+      "titulo": "Pragas na Cultura da Soja e Algodão",
+      "texto": "Lagartas desfolhadoras causam grande prejuízo na cultura da soja e do algodão."
+    },
+    {
+      "id": "Doc 5",
+      "titulo": "Irrigação por Gotejamento",
+      "texto": "A irrigação por gotejamento economiza água e é ideal para o cultivo orgânico."
+    }
+  ]
+}
