@@ -21,7 +21,7 @@ A startup fictícia **AgroTech Solutions** tem uma base interna de manuais técn
 | Busca por texto simples (contém) | Encontra documentos que contêm a palavra exata | Não ranqueia por relevância: um documento com o termo repetido pesa igual a um com uma única ocorrência, e um termo raro e específico (ex.: "nitrogênio") pesa igual a um termo comum a vários documentos (ex.: "soja") |
 | TF-IDF acumulado + Similaridade de Cosseno | Pondera termos raros com peso maior (IDF alto) e ranqueia os documentos por relevância | Depende de um vocabulário fixo pré-processado; não reconhece sinônimos, só variações do mesmo radical (via stemming) |
 
-Exemplo: para a consulta *"irrigação soja"*, uma busca simples encontraria três documentos com "soja" (Doc 1, 2, 4) e dois com "irrigação" (Doc 1, 5), sem indicar qual é o mais relevante. O TF-IDF acumulado soma o peso dos dois termos por documento e revela que o Doc 1 — único a reunir ambos — é o vencedor (0.1784, contra 0.0639 dos demais), resultado confirmado pelo bônus de similaridade de cosseno (0.2572) numa escala normalizada.
+Exemplo: para a consulta *"irrigação soja"*, uma busca simples encontraria três documentos com "soja" (Doc 1, 2, 4) e dois com "irrigação" (Doc 1, 5), sem indicar qual é o mais relevante. O TF-IDF acumulado soma o peso dos dois termos por documento e revela que o Doc 1 (único a reunir ambos) é o vencedor (0.1784, contra 0.0639 dos demais), resultado confirmado pelo bônus de similaridade de cosseno (0.2572) numa escala normalizada.
 
 ---
 
@@ -29,9 +29,9 @@ Exemplo: para a consulta *"irrigação soja"*, uma busca simples encontraria tr�
 
 O AgroSearch funciona em três fases, mais um bônus:
 
-1. **Pipeline de pré-processamento** — tokenização, normalização (minúsculas e remoção de acentos), remoção de stopwords e stemming rudimentar. Stopwords e stemming podem ser ligados/desligados por checkbox na barra lateral, e o vocabulário do corpus muda dinamicamente.
-2. **Índice Invertido** — estrutura `Termo -> [IDs de Documentos]` construída em memória a partir dos tokens já pré-processados, exibida em tabela ou JSON.
-3. **Busca e Ranqueamento TF-IDF** — o usuário digita uma consulta; o sistema calcula TF, IDF e o TF-IDF acumulado por documento e exibe uma tabela ordenada da maior para a menor relevância, destacando o documento vencedor.
+1. **Pipeline de pré-processamento** -> Tokenização, normalização (minúsculas e remoção de acentos), remoção de stopwords e stemming rudimentar. Stopwords e stemming podem ser ligados/desligados por checkbox na barra lateral, e o vocabulário do corpus muda dinamicamente.
+2. **Índice Invertido** -> estrutura `Termo -> [IDs de Documentos]` construída em memória a partir dos tokens já pré-processados, exibida em tabela ou JSON.
+3. **Busca e Ranqueamento TF-IDF** -> o usuário digita uma consulta; o sistema calcula TF, IDF e o TF-IDF acumulado por documento e exibe uma tabela ordenada da maior para a menor relevância, destacando o documento vencedor.
 
 Há ainda um recurso extra opcional que calcula a similaridade de cosseno entre o vetor da consulta e o de cada documento, lidando melhor com consultas de múltiplas palavras.
 
@@ -85,7 +85,8 @@ agrosearch/
 ├── .streamlit/
 │   └── config.toml            # Configurações do streamlit
 ├── assets/
-│   └── UI-agrosearch.png      # Screenshot da interface
+│   ├── UI-agrosearch.png      # Screenshot da interface
+│   └── requisitos-agrosearch.pdf  # Requisitos originais do desafio
 ├── relatorio_tecnico_agrosearch.pdf
 └── README.md
 ```
@@ -101,8 +102,8 @@ localmente, siga os passos abaixo.
 
 ### 1. Pré-requisitos
 
-* Python 3.10 ou superior — [Download](https://www.python.org/downloads/)
-* Git — para clonar o repositório
+* Python 3.10 ou superior - [Download](https://www.python.org/downloads/)
+* Git - para clonar o repositório
 
 ### 2. Clonar o repositório
 
@@ -138,10 +139,10 @@ O app abre automaticamente no navegador (`http://localhost:8501`).
 ## Como Usar
 
 1. Digite uma consulta no campo principal, ou escolha um exemplo na barra lateral:
-   * `irrigação soja` — irrigação na cultura da soja
-   * `lagartas controle biológico` — controle biológico de pragas
-   * `adubação nitrogênio milho` — adubação verde e nitrogênio
-   * `irrigação gotejamento` — irrigação por gotejamento
+   * `irrigação soja` - irrigação na cultura da soja
+   * `lagartas controle biológico` - controle biológico de pragas
+   * `adubação nitrogênio milho` - adubação verde e nitrogênio
+   * `irrigação gotejamento` - irrigação por gotejamento
 2. Ligue/desligue **Stopwords** e **Stemming** na barra lateral e observe o vocabulário, o índice invertido e o ranking mudarem.
 3. Compare os resultados nas abas:
 
